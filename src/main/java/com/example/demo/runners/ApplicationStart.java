@@ -7,8 +7,8 @@ import com.example.demo.course.Course;
 import com.example.demo.course.CourseRepository;
 import com.example.demo.student.Student;
 import com.example.demo.student.StudentRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -16,12 +16,18 @@ import java.util.Collections;
 import java.util.List;
 
 @Component
-@AllArgsConstructor
+@Order(2)
 public class ApplicationStart implements CommandLineRunner {
 
     private final StudentRepository studentRepository;
     private final ClassroomRepository classroomRepository;
     private final CourseRepository courseRepository;
+
+    public ApplicationStart(StudentRepository studentRepository, ClassroomRepository classroomRepository, CourseRepository courseRepository) {
+        this.studentRepository = studentRepository;
+        this.classroomRepository = classroomRepository;
+        this.courseRepository = courseRepository;
+    }
 
     public void initCourses() {
         List<Course> courses = new ArrayList<>() {{
@@ -49,7 +55,7 @@ public class ApplicationStart implements CommandLineRunner {
 
         Classroom tmpClass = classroomRepository.findByName("SR");
         Course blockchain = courseRepository.findByName("Blockchain");
-        Student newStudent = new Student(null, "Dayan", "Eam", 21, new Contact(null, "068400567", "phnom penh"), tmpClass, Collections.singletonList(blockchain));
+        Student newStudent = new Student(null, "Dayan", "Eam", "eam.dayan@gmail.com", 21, new Contact(null, "068400567", "phnom penh"), tmpClass, Collections.singletonList(blockchain));
         studentRepository.save(newStudent);
     }
 }
