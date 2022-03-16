@@ -40,9 +40,10 @@ public class Student {
     @Column(name = "age")
     private Integer age;
 
-    @OneToOne(fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "contact_id", foreignKey = @ForeignKey(name = "fk_contact_id"))
     private Contact contact;
+//        @OneToOne(fetch = FetchType.EAGER, orphanRemoval = true, cascade = CascadeType.PERSIST)
 
     // a many-to-one relationship makes more sense here
     // we will likely create a classroom on its own

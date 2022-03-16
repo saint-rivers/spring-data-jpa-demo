@@ -17,4 +17,13 @@ public class Contact {
     private Long id;
     private String telephone;
     private String address;
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "id=" + id +
+                ", telephone='" + telephone + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }

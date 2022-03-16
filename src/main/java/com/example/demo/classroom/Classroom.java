@@ -24,7 +24,8 @@ public class Classroom {
     private String name;
     private Integer floor;
 
-//    // Commented out because of a many-to-one relationship on the other table
+    // Commented out because of a many-to-one relationship on the other table
+    // uncomment below to enable a Bidirectional Relationship
 //    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 //    @JoinColumn(name = "class_id", foreignKey = @ForeignKey(name = "fk_class_id"))
 //    private List<Student> students = new ArrayList<>();

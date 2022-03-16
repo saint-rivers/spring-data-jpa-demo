@@ -53,9 +53,19 @@ public class ApplicationStart implements CommandLineRunner {
         initClasses();
         initCourses();
 
-        Classroom tmpClass = classroomRepository.findByName("SR");
-        Course blockchain = courseRepository.findByName("Blockchain");
-        Student newStudent = new Student(null, "Dayan", "Eam", "eam.dayan@gmail.com", 21, new Contact(null, "068400567", "phnom penh"), tmpClass, Collections.singletonList(blockchain));
+        Classroom assignedClass = classroomRepository.findByName("SR");
+        Course selectedCourse = courseRepository.findByName("Blockchain");
+
+        Student newStudent = new Student(
+                null,
+                "Dayan",
+                "Eam",
+                "eam.dayan@gmail.com",
+                21,
+                new Contact(null, "068400567", "phnom penh"),
+                assignedClass,
+                Collections.singletonList(selectedCourse)
+        );
         studentRepository.save(newStudent);
     }
 }
