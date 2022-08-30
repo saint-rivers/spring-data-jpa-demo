@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: ams-application
+  datasource:
+    url: jdbc:h2:file:test;
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
