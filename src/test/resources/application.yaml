@@ -7,5 +7,4 @@ spring:
     password:
   jpa:
     hibernate:
-      ddl-auto: update
-    show-sql: true
+      ddl-auto: create-drop

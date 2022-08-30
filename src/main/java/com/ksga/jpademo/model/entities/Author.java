@@ -1,4 +1,4 @@
-package com.ksga.jpademo.model;
+package com.ksga.jpademo.model.entities;
 
 import javax.persistence.*;
 
