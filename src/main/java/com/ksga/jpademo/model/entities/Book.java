@@ -5,12 +5,12 @@ import java.util.List;
 
 /**
  * @author Choumy
- *
+ * <p>
  * Create a table named "books"
  * fields:
- *      id (auto-increment)
- *      title
- *      description
+ * id (auto-increment)
+ * title
+ * description
  */
 
 @Entity
@@ -33,8 +33,8 @@ public class Book {
     private List<Review> reviews;
 
     @ManyToMany
-    @JoinTable(name = "book_category" ,
-            joinColumns =@JoinColumn(name = "book_id"),
+    @JoinTable(name = "book_category",
+            joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
     private List<Category> bookCategory;
