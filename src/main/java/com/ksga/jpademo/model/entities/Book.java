@@ -1,7 +1,14 @@
 package com.ksga.jpademo.model.entities;
 
+import com.ksga.jpademo.model.dto.BookDto;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Choumy
@@ -15,6 +22,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "books")
+@Getter
+@Setter
+@NoArgsConstructor
 public class Book {
 
     @Id
@@ -38,4 +48,16 @@ public class Book {
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
     private List<Category> bookCategory;
+
+    public BookDto toDto() {
+        return new BookDto(
+                this.id,
+                this.title,
+                this.description,
+                this.author.toDto(),
+                this.bookCategory.stream()
+                        .map(Category::toDto)
+                        .collect(Collectors.toList())
+        );
+    }
 }
