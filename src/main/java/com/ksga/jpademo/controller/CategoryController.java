@@ -2,29 +2,12 @@ package com.ksga.jpademo.controller;
 
 import com.ksga.jpademo.model.dto.CategoryDto;
 import com.ksga.jpademo.model.request.CategoryRequest;
+import com.ksga.jpademo.model.response.PageResponse;
+import com.ksga.jpademo.model.response.SuccessResponse;
 import com.ksga.jpademo.service.CategoryService;
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-
-@AllArgsConstructor
-@Data
-@NoArgsConstructor
-class PageResponse<T> {
-    private Integer totalPages;
-    private Long totalElements;
-    private T payload;
-}
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-class SuccessResponse {
-    private String message;
-    private String status;
-}
 
 @RestController
 @RequestMapping("/api/v1/categories")
