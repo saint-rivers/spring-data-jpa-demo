@@ -1,6 +1,8 @@
 package com.ksga.jpademo.model.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Sal
@@ -27,5 +29,6 @@ public class Author {
     @Column(unique = true , nullable = false)
     private String email;
 
-
+    @OneToMany(mappedBy = "author")
+    private List<Book> books = new ArrayList<>();
 }

@@ -24,7 +24,7 @@ public class Book {
     private String description;
 
     // create one-to-one relationship with Author
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "authorid", referencedColumnName = "author_id")
     private Author author;
 

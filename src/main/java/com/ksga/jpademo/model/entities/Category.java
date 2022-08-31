@@ -1,5 +1,6 @@
 package com.ksga.jpademo.model.entities;
 
+import com.ksga.jpademo.model.dto.CategoryDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,12 +33,16 @@ public class Category {
     @Column(unique = true, nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private String year;
+
     @ManyToMany(mappedBy = "bookCategory")
     private List<Book> book = new ArrayList<>();
 
-    public Category(Long id, String name) {
+    public Category(Long id, String name, String year) {
         this.name = name;
         this.id = id;
+        this.year = year;
     }
 
     @Override
@@ -45,5 +50,10 @@ public class Category {
         return getClass().getSimpleName() + "(" +
                 "id = " + id + ", " +
                 "name = " + name + ")";
+    }
+
+
+    public CategoryDto toDto(){
+        return new CategoryDto(this.id, this.name, this.year);
     }
 }
